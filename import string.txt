@@ -1,0 +1,27 @@
+import string
+
+# Șirul preluat de pe internet (exemplu – înlocuiește cu articolul tău)
+text = """România a înregistrat o creștere economică semnificativă în ultimul trimestru,
+potrivit datelor publicate astăzi de Institutul Național de Statistică."""
+
+# 1. Împărțirea șirului în două părți egale
+mid = len(text) // 2
+part1 = text[:mid]
+part2 = text[mid:]
+
+# 2. Prelucrarea primei părți
+part1 = part1.upper()          # transformare în majuscule
+part1 = part1.strip()          # eliminare spații la început și final
+
+# 3. Prelucrarea celei de-a doua părți
+part2 = part2[::-1]            # inversarea caracterelor
+if len(part2) > 0:
+    part2 = part2.capitalize() # prima literă în majusculă
+
+# eliminarea semnelor de punctuație
+punctuatie = ".,,!?"
+part2 = ''.join(ch for ch in part2 if ch not in punctuatie)
+
+# 4. Combinarea și afișarea rezultatului
+rezultat = part1 + " " + part2
+print(rezultat)
